@@ -33,7 +33,32 @@ namespace Ex02.UserInterface
             Player player2 = new Player(m_PlayerType, m_SecondPlayerName);
             m_Board = new Board(player1, player2, m_GameMode, int.Parse(m_BoardWidth), int.Parse(m_BoardHeight));
             m_Board.PrintBoard();
-            Console.ReadLine();
+            Console.WriteLine("Please choose cell:");
+            string choice = Console.ReadLine();
+            bool isLegal = m_Board.isCellLocationInputValid(choice);
+            bool isChosen = true;
+            while (!isLegal || isChosen)
+            {
+                if(!isLegal)
+                {
+                    Console.WriteLine("Not legal option, please choose again:");
+                    choice = Console.ReadLine();
+                    isLegal = m_Board.isCellLocationInputValid(choice);
+                    continue;
+                }
+                else
+                {
+                    isChosen = m_Board.isCellAlreadyChosen(choice);
+                    if(!isChosen)
+                    {
+                        continue;
+                    }
+
+                    Console.WriteLine("Card already been discovered, please choose again:");
+                    choice = Console.ReadLine();
+                    isLegal = m_Board.isCellLocationInputValid(choice);
+                }
+            }
         }
 
         private void gameTitle()
@@ -73,29 +98,29 @@ namespace Ex02.UserInterface
                         m_GameModeChoice = string.Empty;
                         continue;
                     }
+                }
 
-                    if (m_GameModeChoice == "P" && m_SecondPlayerName == string.Empty)
+                if (m_GameModeChoice == "P" && m_SecondPlayerName == string.Empty)
+                {
+                    m_PlayerType = ePlayerType.Human;
+                    m_GameMode = eGameMode.PlayerVsPlayer;
+                    Console.Write("\n-> Please enter second player name: ");
+                    m_SecondPlayerName = Console.ReadLine();
+                    if (!UserInfoValidations.CheckIfValidName(m_SecondPlayerName))
                     {
-                        m_PlayerType = ePlayerType.Human;
-                        m_GameMode = eGameMode.PlayerVsPlayer;
-                        Console.Write("\n-> Please enter second player name: ");
-                        m_SecondPlayerName = Console.ReadLine();
-                        if (!UserInfoValidations.CheckIfValidName(m_SecondPlayerName))
-                        {
-                            Console.WriteLine("\nName is not valid. It should be without any special symbols or numbers.\n");
-                            m_SecondPlayerName = string.Empty;
-                            continue;
-                        }
+                        Console.WriteLine("\nName is not valid. It should be without any special symbols or numbers.\n");
+                        m_SecondPlayerName = string.Empty;
+                        continue;
+                    }
 
-                        Console.WriteLine("\nYou are playing against {0}!\n", m_SecondPlayerName);
-                    }
-                    else
-                    {
-                        m_PlayerType = ePlayerType.Computer;
-                        m_GameMode = eGameMode.PlayerVsComputer;
-                        m_SecondPlayerName = "Computer";
-                        Console.WriteLine("\nYou are playing against the Computer!\n");
-                    }
+                    Console.WriteLine("\nYou are playing against {0}!\n", m_SecondPlayerName);
+                }
+                else
+                {
+                    m_PlayerType = ePlayerType.Computer;
+                    m_GameMode = eGameMode.PlayerVsComputer;
+                    m_SecondPlayerName = "Computer";
+                    Console.WriteLine("\nYou are playing against the Computer!\n");
                 }
 
                 if (m_BoardWidth == string.Empty || m_BoardHeight == string.Empty)
