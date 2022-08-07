@@ -24,3 +24,16 @@ D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.UserInterf
 D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.exe
 D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.pdb
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\bin\Debug\Ex02.UserInterface.exe.config
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.csproj.AssemblyReference.cache
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.csproj.SuggestedBindingRedirects.cache
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.csproj.CoreCompileInputs.cache
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.exe
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.pdb
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\bin\Debug\Ex02.UserInterface.exe.config
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\bin\Debug\Ex02.UserInterface.exe
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\bin\Debug\Ex02.UserInterface.pdb
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\bin\Debug\Ex02.Enums.dll
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\bin\Debug\Ex02.Logic.dll
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\bin\Debug\Ex02.Enums.pdb
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\bin\Debug\Ex02.Logic.pdb
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.csproj.CopyComplete

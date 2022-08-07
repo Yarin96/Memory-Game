@@ -10,3 +10,9 @@ D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.Enums\obj\
 D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.Enums\obj\Debug\Ex02.Enums.csproj.CoreCompileInputs.cache
 D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.Enums\obj\Debug\Ex02.Enums.dll
 D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.Enums\obj\Debug\Ex02.Enums.pdb
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Enums\bin\Debug\Ex02.Enums.dll
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Enums\bin\Debug\Ex02.Enums.pdb
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Enums\obj\Debug\Ex02.Enums.csproj.AssemblyReference.cache
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Enums\obj\Debug\Ex02.Enums.csproj.CoreCompileInputs.cache
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Enums\obj\Debug\Ex02.Enums.dll
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Enums\obj\Debug\Ex02.Enums.pdb

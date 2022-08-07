@@ -31,7 +31,7 @@ namespace Ex02.UserInterface
         private readonly int r_BoardWidth;
         private readonly int r_BoardHeight;
         private Card[,] m_Board;
-        private GameLogic m_GameLogic;
+        public GameLogic m_GameLogic;
 
         public Board(Player i_Player1, Player i_Player2, eGameMode i_GameMode, int i_BoardWidth, int i_BoardHeight)
         {
@@ -89,6 +89,7 @@ namespace Ex02.UserInterface
 
         public void PrintBoard()
         {
+            Console.WriteLine("  " + m_GameLogic.GetPlayer1().PlayerName + " Score: " + m_GameLogic.GetPlayer1().PlayerScore + "\t\t" + m_GameLogic.GetPlayer2().PlayerName + " Score: " + m_GameLogic.GetPlayer2().PlayerScore + "\n");
             Console.Write("   ");
             for (int i = 0; i < r_BoardWidth; i++)
             {
@@ -141,7 +142,7 @@ namespace Ex02.UserInterface
             Console.Write("\n");
         }
 
-        public bool isCardLocationInputValid(string i_Input)
+        public bool IsCardLocationInputValid(string i_Input)
         {
             bool isValid = false;
             if (i_Input.Length != 2)
@@ -166,7 +167,7 @@ namespace Ex02.UserInterface
             return isValid;
         }
 
-        public bool isCardAlreadyChosen(string i_Input)
+        public bool IsCardAlreadyChosen(string i_Input)
         {
             int colLetter = (int)char.ToUpper(i_Input[0]) - 64;
             int.TryParse(i_Input[1].ToString(), out int rowNum);

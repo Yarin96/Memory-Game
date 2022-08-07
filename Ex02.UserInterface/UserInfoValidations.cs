@@ -25,9 +25,9 @@
         public static bool CheckIfValidBoardSize(string i_Size)
         {
             bool isValidFlag = false;
-            if (int.TryParse(i_Size, out int i_SizeNumber))
+            if (int.TryParse(i_Size, out int sizeNumber))
             {
-                isValidFlag = i_SizeNumber >= 4 && i_SizeNumber <= 6;
+                isValidFlag = sizeNumber >= 4 && sizeNumber <= 6;
             }
 
             return isValidFlag;

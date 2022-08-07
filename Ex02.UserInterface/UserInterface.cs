@@ -1,6 +1,7 @@
 ﻿using System;
 using Ex02.ConsoleUtils;
 using Ex02.Enums;
+using Ex02.Logic;
 
 namespace Ex02.UserInterface
 {
@@ -146,7 +147,7 @@ namespace Ex02.UserInterface
         {
             Console.Write("Please choose a card (Format of [Capital Letter, Number]): ");
             string choice = Console.ReadLine();
-            bool isLegal = m_Board.isCardLocationInputValid(choice);
+            bool isLegal = m_Board.IsCardLocationInputValid(choice);
             bool isChosen = true;
             while (!isLegal || isChosen)
             {
@@ -154,12 +155,12 @@ namespace Ex02.UserInterface
                 {
                     Console.Write("Not a legal option, please choose again: ");
                     choice = Console.ReadLine();
-                    isLegal = m_Board.isCardLocationInputValid(choice);
+                    isLegal = m_Board.IsCardLocationInputValid(choice);
                     continue;
                 }
                 else
                 {
-                    isChosen = m_Board.isCardAlreadyChosen(choice);
+                    isChosen = m_Board.IsCardAlreadyChosen(choice);
                     if (!isChosen)
                     {
                         continue;
@@ -167,9 +168,10 @@ namespace Ex02.UserInterface
 
                     Console.Write("Card has already been discovered, please choose again: ");
                     choice = Console.ReadLine();
-                    isLegal = m_Board.isCardLocationInputValid(choice);
+                    isLegal = m_Board.IsCardLocationInputValid(choice);
                 }
             }
         }
+
     }
 }

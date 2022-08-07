@@ -27,11 +27,11 @@
             set { m_IsHidden = value; }
         }
 
-        internal static void foldCard()
+        internal static void FoldCard()
         {
         }
 
-        internal static void unfoldCard()
+        internal static void UnfoldCard()
         {
         }
 
