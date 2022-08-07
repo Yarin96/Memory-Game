@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Ex02.Enums;
 using Ex02.Logic;
 
@@ -32,6 +31,7 @@ namespace Ex02.UserInterface
         private readonly int r_BoardWidth;
         private readonly int r_BoardHeight;
         private Card[,] m_Board;
+        private GameLogic m_GameLogic;
 
         public Board(Player i_Player1, Player i_Player2, eGameMode i_GameMode, int i_BoardWidth, int i_BoardHeight)
         {
@@ -39,6 +39,7 @@ namespace Ex02.UserInterface
             r_BoardHeight = i_BoardHeight;
             m_Board = new Card[i_BoardWidth, i_BoardHeight];
             generateRandomCharValuesOnBoard();
+            m_GameLogic = new GameLogic(i_Player1, i_Player2, i_GameMode, i_BoardWidth, i_BoardHeight);
         }
 
         private void generateRandomCharValuesOnBoard()
@@ -140,17 +141,12 @@ namespace Ex02.UserInterface
             Console.Write("\n");
         }
 
-        public bool IsCardValueEqual(Card i_Card1, Card i_Card2)
+        public bool isCardLocationInputValid(string i_Input)
         {
-            bool validFlag = true;
-            return validFlag;
-        }
-
-        public bool isCellLocationInputValid(string i_Input)
-        {
+            bool isValid = false;
             if (i_Input.Length != 2)
             {
-                return false;
+                isValid = false;
             }
             else
             {
@@ -159,16 +155,18 @@ namespace Ex02.UserInterface
                     int endingLetter = r_BoardWidth + 64;
                     int chosenLetter = (int)char.ToUpper(i_Input[0]);
                     int.TryParse(i_Input[1].ToString(), out int rowNum);
-                    return chosenLetter <= endingLetter && chosenLetter > 64 && rowNum <= r_BoardHeight && rowNum > 0;
+                    isValid = chosenLetter <= endingLetter && chosenLetter > 64 && rowNum <= r_BoardHeight && rowNum > 0;
                 }
                 else
                 {
-                    return false;
+                    isValid = false;
                 }
             }
+
+            return isValid;
         }
 
-        public bool isCellAlreadyChosen(string i_Input)
+        public bool isCardAlreadyChosen(string i_Input)
         {
             int colLetter = (int)char.ToUpper(i_Input[0]) - 64;
             int.TryParse(i_Input[1].ToString(), out int rowNum);

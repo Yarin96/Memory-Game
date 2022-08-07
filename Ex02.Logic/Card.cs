@@ -34,5 +34,11 @@
         internal static void unfoldCard()
         {
         }
+
+        internal bool IsCardValueEqual(Card i_Card1, Card i_Card2)
+        {
+            bool validFlag = true;
+            return validFlag;
+        }
     }
 }

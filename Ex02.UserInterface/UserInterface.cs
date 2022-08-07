@@ -146,28 +146,28 @@ namespace Ex02.UserInterface
         {
             Console.Write("Please choose a card (Format of [Capital Letter, Number]): ");
             string choice = Console.ReadLine();
-            bool isLegal = m_Board.isCellLocationInputValid(choice);
+            bool isLegal = m_Board.isCardLocationInputValid(choice);
             bool isChosen = true;
             while (!isLegal || isChosen)
             {
                 if (!isLegal)
                 {
-                    Console.WriteLine("Not legal option, please choose again:");
+                    Console.Write("Not a legal option, please choose again: ");
                     choice = Console.ReadLine();
-                    isLegal = m_Board.isCellLocationInputValid(choice);
+                    isLegal = m_Board.isCardLocationInputValid(choice);
                     continue;
                 }
                 else
                 {
-                    isChosen = m_Board.isCellAlreadyChosen(choice);
+                    isChosen = m_Board.isCardAlreadyChosen(choice);
                     if (!isChosen)
                     {
                         continue;
                     }
 
-                    Console.WriteLine("Card already been discovered, please choose again:");
+                    Console.Write("Card has already been discovered, please choose again: ");
                     choice = Console.ReadLine();
-                    isLegal = m_Board.isCellLocationInputValid(choice);
+                    isLegal = m_Board.isCardLocationInputValid(choice);
                 }
             }
         }
