@@ -14,5 +14,11 @@ namespace Ex02.UserInterface
             m_PlayerName = i_PlayerName;
             m_PlayerScore = 0;
         }
+
+        public string Name
+        {
+            get { return m_PlayerName; }
+            set { m_PlayerName = value; }
+        }
     }
 }
