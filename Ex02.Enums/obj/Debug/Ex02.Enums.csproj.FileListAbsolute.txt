@@ -1,4 +1,3 @@
-C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Enums\obj\Debug\Ex02.Enums.csproj.AssemblyReference.cache
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Enums\obj\Debug\Ex02.Enums.csproj.CoreCompileInputs.cache
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Enums\bin\Debug\Ex02.Enums.dll
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Enums\bin\Debug\Ex02.Enums.pdb

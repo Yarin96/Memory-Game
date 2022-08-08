@@ -5,87 +5,166 @@ namespace Ex02.Logic
 {
     public class GameLogic
     {
-        private readonly int r_BoardRows;
-        private readonly int r_BoardColumns;
+        private readonly int r_BoardHeight;
+        private readonly int r_BoardWidth;
         private bool m_IsFirstCardSelection;
         private bool m_CardValuesMatch;
         private Card m_CurrentCardSelection;
         private Card m_PreviousCardSelection;
         private Player m_Player1;
         private Player m_Player2;
+        private Player m_CurrentPlayer;
         private eGameMode m_GameMode;
+        private Card[,] m_Board;
 
-        public GameLogic(Player i_Player1, Player i_Player2, eGameMode i_GameMode, int i_Width, int i_Height)
+        public GameLogic(
+            Player i_Player1,
+            Player i_Player2,
+            eGameMode i_GameMode,
+            int i_BoardWidth,
+            int i_BoardHeight,
+            Card[,] i_Board)
         {
             m_Player1 = i_Player1;
             m_Player2 = i_Player2;
-            m_IsFirstCardSelection = true;
-            r_BoardColumns = i_Width;
-            r_BoardRows = i_Height;
+            m_CurrentPlayer = i_Player1;
             m_GameMode = i_GameMode;
+            r_BoardWidth = i_BoardWidth;
+            r_BoardHeight = i_BoardHeight;
+            m_IsFirstCardSelection = true;
+            m_Board = i_Board;
         }
 
-        public void RunGame()
+        public Player CurrentPlayer
         {
-            //int totalCards = (r_BoardColumns * r_BoardRows) / 2;
-            //int remainingCards = m_Player1.PlayerScore + m_Player2.PlayerScore;
-            //while (remainingCards != totalCards)
-            //{
-            //    if (m_GameMode == eGameMode.PlayerVsComputer)
-            //    {
-
-            //    }
-            //    else
-            //    {
-
-            //    }
-            //}
-            Console.WriteLine("Running logic here");
+            get
+            {
+                return m_CurrentPlayer;
+            }
+            set
+            {
+                m_CurrentPlayer = value;
+            }
         }
 
-        public Player GetPlayer1()
+        public Player Player1
         {
-            return m_Player1;
+            get
+            {
+                return m_Player1;
+            }
         }
 
-        public Player GetPlayer2()
+        public Player Player2
         {
-            return m_Player2;
+            get
+            {
+                return m_Player2;
+            }
         }
 
-        public void UpdateTurn(Card i_UserCardSelection)
+        public bool CardValuesMatch
+        {
+            get
+            {
+                return m_CardValuesMatch;
+            }
+        }
+
+        public Card PreviousCard
+        {
+            get
+            {
+                return m_PreviousCardSelection;
+            }
+        }
+
+        public Card CurrentCard
+        {
+            get
+            {
+                return m_CurrentCardSelection;
+            }
+        }
+
+        public void UpdateNextTurn(Card i_UserCardSelection)
         {
             if (m_IsFirstCardSelection)
             {
                 m_PreviousCardSelection = i_UserCardSelection;
-                i_UserCardSelection.IsHidden = false;
+                m_PreviousCardSelection.IsHidden = false;
                 m_IsFirstCardSelection = false;
             }
             else
             {
                 m_CurrentCardSelection = i_UserCardSelection;
-                i_UserCardSelection.IsHidden = false;
+                m_CurrentCardSelection.IsHidden = false;
                 m_IsFirstCardSelection = true;
                 m_CardValuesMatch = m_CurrentCardSelection.CardValue == m_PreviousCardSelection.CardValue;
                 if (m_CardValuesMatch)
                 {
-                    m_Player1.PlayerScore++;
+                    m_CurrentPlayer.PlayerScore++;
                 }
                 else
                 {
-                    m_PreviousCardSelection.IsHidden = true;
-                    m_CurrentCardSelection.IsHidden = true;
+                    m_CurrentPlayer = m_CurrentPlayer == m_Player1 ? m_Player2 : m_Player1;
                 }
             }
         }
 
-        private void computerTurn()
+        public void ComputerTurn()
         {
             Random random = new Random();
-            int randomRow = random.Next(r_BoardRows);
-            int randomColumn = random.Next(r_BoardColumns);
+            Card currentComputerChoice = m_Board[random.Next(r_BoardHeight), random.Next(r_BoardWidth)];
+            while (!currentComputerChoice.IsHidden)
+            {
+                currentComputerChoice = m_Board[random.Next(r_BoardHeight), random.Next(r_BoardWidth)];
+            }
+
+            UpdateNextTurn(currentComputerChoice);
         }
 
+        public bool IsCardLocationInputValid(string i_UserCardInput)
+        {
+            bool isValid = false;
+            if (i_UserCardInput.Length != 2)
+            {
+                isValid = false;
+            }
+            else
+            {
+                if (char.IsLetter(i_UserCardInput[0]) && char.IsDigit(i_UserCardInput[1]))
+                {
+                    int endingLetter = r_BoardWidth + 64;
+                    int chosenLetter = (int)char.ToUpper(i_UserCardInput[0]);
+                    int.TryParse(i_UserCardInput[1].ToString(), out int rowNum);
+                    isValid = chosenLetter <= endingLetter && chosenLetter > 64 && rowNum <= r_BoardHeight && rowNum > 0;
+                }
+                else
+                {
+                    isValid = false;
+                }
+            }
 
+            return isValid;
+        }
+
+        public bool IsCardAlreadyChosen(string i_UserCardInput)
+        {
+            int colLetter = ConvertLetterToInt(i_UserCardInput[0]);
+            int rowNum = ConvertNumberCharacterToInt(i_UserCardInput[1]);
+            return !m_Board[colLetter - 1, rowNum - 1].IsHidden;
+        }
+
+        public int ConvertLetterToInt(char i_Char)
+        {
+            return (int)char.ToUpper(i_Char) - 64;
+        }
+
+        public int ConvertNumberCharacterToInt(char i_Char)
+        {
+            int.TryParse(i_Char.ToString(), out int numberIndexOnBoard);
+            return numberIndexOnBoard;
+        }
     }
 }

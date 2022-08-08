@@ -16,12 +16,12 @@ D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.Logic\obj\
 D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.Logic\obj\Debug\Ex02.Logic.csproj.CopyComplete
 D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.Logic\obj\Debug\Ex02.Logic.dll
 D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.Logic\obj\Debug\Ex02.Logic.pdb
-D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\obj\Debug\Ex02.Logic.csproj.AssemblyReference.cache
-D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\obj\Debug\Ex02.Logic.csproj.CoreCompileInputs.cache
-D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\obj\Debug\Ex02.Logic.dll
-D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\obj\Debug\Ex02.Logic.pdb
 D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\bin\Debug\Ex02.Logic.dll
 D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\bin\Debug\Ex02.Logic.pdb
 D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\bin\Debug\Ex02.Enums.dll
 D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\bin\Debug\Ex02.Enums.pdb
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\obj\Debug\Ex02.Logic.csproj.AssemblyReference.cache
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\obj\Debug\Ex02.Logic.csproj.CoreCompileInputs.cache
 D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\obj\Debug\Ex02.Logic.csproj.CopyComplete
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\obj\Debug\Ex02.Logic.dll
+D:\Softwares\programming softwares\C# exe\EXE2\EXE2git\Ex02.Logic\obj\Debug\Ex02.Logic.pdb

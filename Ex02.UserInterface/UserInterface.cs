@@ -14,33 +14,33 @@ namespace Ex02.UserInterface
         private string m_BoardHeight;
         private ePlayerType m_PlayerType;
         private eGameMode m_GameMode;
-        private Board m_Board;
 
         public UserInterface()
         {
-            this.m_FirstPlayerName = string.Empty;
-            this.m_SecondPlayerName = string.Empty;
-            this.m_GameModeChoice = string.Empty;
-            this.m_BoardWidth = string.Empty;
-            this.m_BoardHeight = string.Empty;
+            m_FirstPlayerName = string.Empty;
+            m_SecondPlayerName = string.Empty;
+            m_GameModeChoice = string.Empty;
+            m_BoardWidth = string.Empty;
+            m_BoardHeight = string.Empty;
         }
 
         public void InitiateGame()
         {
             gameTitle();
             collectUserInfoAndGameProps();
-            Player player1 = new Player(ePlayerType.Human, m_FirstPlayerName);
-            Player player2 = new Player(m_PlayerType, m_SecondPlayerName);
-            m_Board = new Board(player1, player2, m_GameMode, int.Parse(m_BoardWidth), int.Parse(m_BoardHeight));
-            m_Board.PrintBoard();
-            playerTurn();
+            new Board(
+                new Player(ePlayerType.Human, m_FirstPlayerName),
+                new Player(m_PlayerType, m_SecondPlayerName),
+                m_GameMode,
+                int.Parse(m_BoardWidth),
+                int.Parse(m_BoardHeight));
         }
 
         private void gameTitle()
         {
             string introduction = string.Format("     |~~~~~~~~~~~~~~~~~~~|\n" +
-                                    "     | Memory Card Game! |\n" +
-                                    "     |~~~~~~~~~~~~~~~~~~~|\n");
+                                                "     | Memory Card Game! |\n" +
+                                                "     |~~~~~~~~~~~~~~~~~~~|\n");
             Console.WriteLine(introduction);
         }
 
@@ -75,7 +75,7 @@ namespace Ex02.UserInterface
                     }
                 }
 
-                if (m_GameModeChoice == "P" && m_SecondPlayerName == string.Empty)
+                if (m_GameModeChoice.ToUpper() == "P" && m_SecondPlayerName == string.Empty)
                 {
                     m_PlayerType = ePlayerType.Human;
                     m_GameMode = eGameMode.PlayerVsPlayer;
@@ -83,7 +83,7 @@ namespace Ex02.UserInterface
                     m_SecondPlayerName = Console.ReadLine();
                     if (!UserInfoValidations.CheckIfValidName(m_SecondPlayerName))
                     {
-                        Console.WriteLine("\nName is not valid. It should be without any special symbols or numbers.\n");
+                        Console.Write("\nName is not valid. It should be without any special symbols/numbers/empty.\n");
                         m_SecondPlayerName = string.Empty;
                         continue;
                     }
@@ -135,43 +135,12 @@ namespace Ex02.UserInterface
                     }
                 }
 
-                validationFlag = true; /// When compiler reaches here, all info is valid.
+                validationFlag = true;
             }
             while (!validationFlag);
             Console.WriteLine("\nWe're good to go! Press 'enter' to start the game ...");
             Console.ReadLine();
             Screen.Clear();
         }
-
-        private void playerTurn()
-        {
-            Console.Write("Please choose a card (Format of [Capital Letter, Number]): ");
-            string choice = Console.ReadLine();
-            bool isLegal = m_Board.IsCardLocationInputValid(choice);
-            bool isChosen = true;
-            while (!isLegal || isChosen)
-            {
-                if (!isLegal)
-                {
-                    Console.Write("Not a legal option, please choose again: ");
-                    choice = Console.ReadLine();
-                    isLegal = m_Board.IsCardLocationInputValid(choice);
-                    continue;
-                }
-                else
-                {
-                    isChosen = m_Board.IsCardAlreadyChosen(choice);
-                    if (!isChosen)
-                    {
-                        continue;
-                    }
-
-                    Console.Write("Card has already been discovered, please choose again: ");
-                    choice = Console.ReadLine();
-                    isLegal = m_Board.IsCardLocationInputValid(choice);
-                }
-            }
-        }
-
     }
 }

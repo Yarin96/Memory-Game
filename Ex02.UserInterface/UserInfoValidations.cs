@@ -19,15 +19,15 @@
 
         public static bool CheckIfValidGameModeInput(string i_GameModeChoice)
         {
-            return i_GameModeChoice == "P" || i_GameModeChoice == "C";
+            return i_GameModeChoice.ToUpper() == "P" || i_GameModeChoice.ToUpper() == "C";
         }
 
-        public static bool CheckIfValidBoardSize(string i_Size)
+        public static bool CheckIfValidBoardSize(string i_BoardSize)
         {
             bool isValidFlag = false;
-            if (int.TryParse(i_Size, out int sizeNumber))
+            if (int.TryParse(i_BoardSize, out int i_SizeNumber))
             {
-                isValidFlag = sizeNumber >= 4 && sizeNumber <= 6;
+                isValidFlag = i_SizeNumber >= 4 && i_SizeNumber <= 6;
             }
 
             return isValidFlag;
