@@ -1,8 +1,8 @@
 ﻿using Ex02.Enums;
 
-namespace Ex02.UserInterface
+namespace Ex02.Logic
 {
-    internal class Player
+    public class Player
     {
         private ePlayerType m_PlayerType;
         private string m_PlayerName;
