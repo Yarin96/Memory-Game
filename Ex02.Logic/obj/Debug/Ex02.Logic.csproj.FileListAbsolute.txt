@@ -1,10 +1,7 @@
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Logic\obj\Debug\Ex02.Logic.csproj.CoreCompileInputs.cache
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Logic\bin\Debug\Ex02.Logic.dll
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Logic\bin\Debug\Ex02.Logic.pdb
-C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Logic\bin\Debug\Ex02.Enums.dll
-C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Logic\bin\Debug\Ex02.Enums.pdb
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Logic\obj\Debug\Ex02.Logic.csproj.AssemblyReference.cache
-C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Logic\obj\Debug\Ex02.Logic.csproj.CopyComplete
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Logic\obj\Debug\Ex02.Logic.dll
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.Logic\obj\Debug\Ex02.Logic.pdb
 D:\Softwares\programming softwares\C# exe\EXE2\JoinedExe2FromGit\Ex02.Logic\bin\Debug\Ex02.Logic.dll

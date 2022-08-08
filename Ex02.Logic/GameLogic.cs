@@ -1,5 +1,4 @@
 ﻿using System;
-using Ex02.Enums;
 
 namespace Ex02.Logic
 {
@@ -14,13 +13,11 @@ namespace Ex02.Logic
         private Player m_Player1;
         private Player m_Player2;
         private Player m_CurrentPlayer;
-        private eGameMode m_GameMode;
         private Card[,] m_Board;
 
         public GameLogic(
             Player i_Player1,
             Player i_Player2,
-            eGameMode i_GameMode,
             int i_BoardWidth,
             int i_BoardHeight,
             Card[,] i_Board)
@@ -28,7 +25,6 @@ namespace Ex02.Logic
             m_Player1 = i_Player1;
             m_Player2 = i_Player2;
             m_CurrentPlayer = i_Player1;
-            m_GameMode = i_GameMode;
             r_BoardWidth = i_BoardWidth;
             r_BoardHeight = i_BoardHeight;
             m_IsFirstCardSelection = true;
@@ -41,6 +37,7 @@ namespace Ex02.Logic
             {
                 return m_CurrentPlayer;
             }
+
             set
             {
                 m_CurrentPlayer = value;

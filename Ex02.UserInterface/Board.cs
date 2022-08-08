@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Ex02.ConsoleUtils;
-using Ex02.Enums;
 using Ex02.Logic;
 
 namespace Ex02.UserInterface
@@ -21,7 +20,7 @@ namespace Ex02.UserInterface
             r_BoardWidth = i_BoardWidth;
             r_BoardHeight = i_BoardHeight;
             m_Board = new Card[i_BoardWidth, i_BoardHeight];
-            m_GameLogic = new GameLogic(i_Player1, i_Player2, i_GameMode, i_BoardWidth, i_BoardHeight, m_Board);
+            m_GameLogic = new GameLogic(i_Player1, i_Player2, i_BoardWidth, i_BoardHeight, m_Board);
             runGame();
         }
 
@@ -50,38 +49,6 @@ namespace Ex02.UserInterface
             }
 
             gameOver();
-        }
-
-        private void computerTurn()
-        {
-            for(int i = 0; i < 2; i++)
-            {
-                Console.WriteLine("\nComputer is thinking...");
-                wait(2000);
-                m_GameLogic.ComputerTurn();
-                printUpdatedBoard();
-
-            }
-
-            if (!m_GameLogic.CardValuesMatch)
-            {
-                Console.WriteLine("\nComputer was wrong! You're up next!");
-                wait(2000);
-                m_GameLogic.PreviousCard.IsHidden = true;
-                m_GameLogic.CurrentCard.IsHidden = true;
-            }
-            else
-            {
-                Console.WriteLine("\nComputer got a point!");
-                wait(2000);
-            }
-
-            printUpdatedBoard();
-        }
-
-        private void wait(int i_Time)
-        {
-            System.Threading.Thread.Sleep(i_Time);
         }
 
         public void PrintBoard()
@@ -168,6 +135,32 @@ namespace Ex02.UserInterface
             }
         }
 
+        private void computerTurn()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Console.WriteLine("\n   Computer is thinking...");
+                wait(2000);
+                m_GameLogic.ComputerTurn();
+                printUpdatedBoard();
+            }
+
+            if (!m_GameLogic.CardValuesMatch)
+            {
+                Console.WriteLine("\n   Computer was wrong! You're up next!");
+                wait(2000);
+                m_GameLogic.PreviousCard.IsHidden = true;
+                m_GameLogic.CurrentCard.IsHidden = true;
+            }
+            else
+            {
+                Console.WriteLine("\n   * Computer got a point! *");
+                wait(2000);
+            }
+
+            printUpdatedBoard();
+        }
+
         private void humanPlayerTurn()
         {
             for (int i = 0; i < 2; i++)
@@ -178,11 +171,11 @@ namespace Ex02.UserInterface
                         "\n     -> Type 'Q' to exit the program.", m_GameLogic.CurrentPlayer.PlayerName);
                 if (i == 0)
                 {
-                    Console.Write("\nEnter first choice: ");
+                    Console.Write("\n-> Enter first choice: ");
                 }
                 else
                 {
-                    Console.Write("\nEnter second choice: ");
+                    Console.Write("\n-> Enter second choice: ");
                 }
 
                 string cardChoice = Console.ReadLine();
@@ -202,14 +195,14 @@ namespace Ex02.UserInterface
 
             if (!m_GameLogic.CardValuesMatch)
             {
-                Console.WriteLine("\nWrong choice, try next time!");
+                Console.WriteLine("\n   Wrong choice, try next time!");
                 wait(2000);
                 m_GameLogic.PreviousCard.IsHidden = true;
                 m_GameLogic.CurrentCard.IsHidden = true;
             }
             else
             {
-                Console.WriteLine("\n{0} got a point!", m_GameLogic.CurrentPlayer.PlayerName);
+                Console.WriteLine("\n   * {0} got a point! *", m_GameLogic.CurrentPlayer.PlayerName);
                 wait(2000);
             }
 
@@ -227,7 +220,7 @@ namespace Ex02.UserInterface
             List<char> couplesOfLetters = new List<char>(r_BoardWidth * r_BoardHeight);
             addCouplesOfLettersToList(ref couplesOfLetters);
             shuffleList(ref couplesOfLetters);
-            assignLettersToList(ref couplesOfLetters);
+            assignLettersFromListToBoard(ref couplesOfLetters);
         }
 
         private void addCouplesOfLettersToList(ref List<char> i_List)
@@ -254,7 +247,7 @@ namespace Ex02.UserInterface
             }
         }
 
-        private void assignLettersToList(ref List<char> i_List)
+        private void assignLettersFromListToBoard(ref List<char> i_List)
         {
             int indexInList = 0;
             for (int i = 0; i < r_BoardWidth; i++)
@@ -270,7 +263,16 @@ namespace Ex02.UserInterface
         private void printScoreBoard()
         {
             Console.WriteLine();
-            Console.WriteLine("  " + m_GameLogic.Player1.PlayerName + "'s score: " + m_GameLogic.Player1.PlayerScore + "   -   " + m_GameLogic.Player2.PlayerName + "'s score: " + m_GameLogic.Player2.PlayerScore + "\n");
+            Console.WriteLine(
+                "   | " +
+                m_GameLogic.Player1.PlayerName +
+                "'s score: " +
+                m_GameLogic.Player1.PlayerScore +
+                "   -   " +
+                m_GameLogic.Player2.PlayerName +
+                "'s score: " +
+                m_GameLogic.Player2.PlayerScore +
+                " |\n");
         }
 
         private void exitProgram()
@@ -287,9 +289,9 @@ namespace Ex02.UserInterface
         private void gameOver()
         {
             Screen.Clear();
-            Console.WriteLine("Game Over! final results:\n");
+            Console.WriteLine("\n ~~~~~ Game Over! Final Results: ~~~~~\n");
             printScoreBoard();
-            Console.WriteLine("Press R to restart the game or press Enter to exit.");
+            Console.WriteLine("-> Press R to restart the game or press Enter to exit.");
             string isGameOver = Console.ReadLine();
             while (isGameOver != string.Empty && isGameOver != "R")
             {
@@ -311,6 +313,11 @@ namespace Ex02.UserInterface
         {
             Screen.Clear();
             new UserInterface().InitiateGame();
+        }
+
+        private void wait(int i_TimeMiliSeconds)
+        {
+            System.Threading.Thread.Sleep(i_TimeMiliSeconds);
         }
     }
 }

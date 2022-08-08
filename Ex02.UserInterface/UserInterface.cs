@@ -1,6 +1,5 @@
 ﻿using System;
 using Ex02.ConsoleUtils;
-using Ex02.Enums;
 using Ex02.Logic;
 
 namespace Ex02.UserInterface
@@ -90,7 +89,8 @@ namespace Ex02.UserInterface
 
                     Console.WriteLine("\nYou are playing against {0}!\n", m_SecondPlayerName);
                 }
-                else
+
+                if (m_GameModeChoice.ToUpper() == "C")
                 {
                     m_PlayerType = ePlayerType.Computer;
                     m_GameMode = eGameMode.PlayerVsComputer;

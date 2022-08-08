@@ -3,9 +3,7 @@ C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\bin\Debug\Ex02.UserInterface.exe
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\bin\Debug\Ex02.UserInterface.pdb
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\bin\Debug\Ex02.ConsoleUtils.dll
-C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\bin\Debug\Ex02.Enums.dll
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\bin\Debug\Ex02.Logic.dll
-C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\bin\Debug\Ex02.Enums.pdb
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\bin\Debug\Ex02.Logic.pdb
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.csproj.CopyComplete
 C:\Users\USER\source\repos\C22 Ex02 YarinBar 207128091 BenDaniels 316582295\C22 Ex02 Yarin 207128091 Ben 316582295\Ex02.UserInterface\obj\Debug\Ex02.UserInterface.exe

@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Ex02.UserInterface</RootNamespace>
     <AssemblyName>Ex02.UserInterface</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -41,10 +41,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ex02.Enums\Ex02.Enums.csproj">
-      <Project>{d2d99741-7329-44f0-ad88-64b502fa775d}</Project>
-      <Name>Ex02.Enums</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ex02.Logic\Ex02.Logic.csproj">
       <Project>{5b10dfba-b5aa-406e-bb28-ded7df8828cf}</Project>
       <Name>Ex02.Logic</Name>

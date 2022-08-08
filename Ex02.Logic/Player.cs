@@ -1,6 +1,4 @@
-﻿using Ex02.Enums;
-
-namespace Ex02.Logic
+﻿namespace Ex02.Logic
 {
     public class Player
     {
