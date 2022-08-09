@@ -292,27 +292,16 @@ namespace Ex02.UserInterface
                 " |\n");
         }
 
-        private void exitProgram()
-        {
-            Console.Write("\nExiting program.");
-            System.Threading.Thread.Sleep(1000);
-            Console.Write(".");
-            System.Threading.Thread.Sleep(1000);
-            Console.Write(".");
-            System.Threading.Thread.Sleep(1000);
-            Environment.Exit(0);
-        }
-
         private void gameOver()
         {
             Screen.Clear();
-            Console.WriteLine("\n ~~~~~ Game Over! Final Results: ~~~~~\n");
+            Console.WriteLine("\n     ~~~~~ Game Over! Final Results: ~~~~~\n");
             printScoreBoard();
-            Console.WriteLine("-> Press R to restart the game or press Enter to exit.");
+            Console.WriteLine("-> Press R to have another round vs. {0} or press Enter to exit.", m_GameLogic.Player2.PlayerName);
             string isGameOver = Console.ReadLine();
             while (isGameOver != string.Empty && isGameOver != "R")
             {
-                Console.WriteLine("Wrong input! Press R to restart the game or press Enter to exit.");
+                Console.WriteLine("-> Wrong input! Press R to have another round vs. {0} or press Enter to exit.", m_GameLogic.Player2.PlayerName);
                 isGameOver = Console.ReadLine();
             }
 
@@ -326,10 +315,24 @@ namespace Ex02.UserInterface
             }
         }
 
+        private void exitProgram()
+        {
+            Console.Write("\nExiting program.");
+            System.Threading.Thread.Sleep(1000);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(1000);
+            Console.Write(".");
+            System.Threading.Thread.Sleep(1000);
+            Environment.Exit(0);
+        }
+
         private void restartGame()
         {
             Screen.Clear();
-            new UserInterface().InitiateGame();
+            m_GameLogic.Player1.PlayerScore = 0;
+            m_GameLogic.Player2.PlayerScore = 0;
+            m_GameLogic.CurrentPlayer.PlayerType = ePlayerType.Human;
+            runGame();
         }
 
         private void wait(int i_TimeMiliSeconds)
