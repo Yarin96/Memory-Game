@@ -10,10 +10,10 @@ namespace Ex02.Logic
         private bool m_CardValuesMatch;
         private Card m_CurrentCardSelection;
         private Card m_PreviousCardSelection;
+        private Card[,] m_Board;
         private Player m_Player1;
         private Player m_Player2;
         private Player m_CurrentPlayer;
-        private Card[,] m_Board;
 
         public GameLogic(
             Player i_Player1,
@@ -112,10 +112,10 @@ namespace Ex02.Logic
         public void ComputerTurn()
         {
             Random random = new Random();
-            Card currentComputerChoice = m_Board[random.Next(r_BoardHeight), random.Next(r_BoardWidth)];
+            Card currentComputerChoice = m_Board[random.Next(r_BoardWidth), random.Next(r_BoardHeight)];
             while (!currentComputerChoice.IsHidden)
             {
-                currentComputerChoice = m_Board[random.Next(r_BoardHeight), random.Next(r_BoardWidth)];
+                currentComputerChoice = m_Board[random.Next(r_BoardWidth), random.Next(r_BoardHeight)];
             }
 
             UpdateNextTurn(currentComputerChoice);

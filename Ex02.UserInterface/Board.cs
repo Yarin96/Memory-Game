@@ -5,9 +5,18 @@ using Ex02.Logic;
 
 namespace Ex02.UserInterface
 {
+    internal enum eColumnIndex
+    {
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+    }
+
     internal class Board
     {
-        private static readonly char[] sr_ColumnIdentifier = { 'A', 'B', 'C', 'D', 'E', 'F' };
         private readonly int r_BoardWidth;
         private readonly int r_BoardHeight;
         private eGameMode m_GameMode;
@@ -27,7 +36,7 @@ namespace Ex02.UserInterface
         private void runGame()
         {
             generateRandomCharValuesOnBoard();
-            PrintBoard();
+            printBoard();
             int totalPossibleScore = (r_BoardWidth * r_BoardHeight) / 2;
             while (m_GameLogic.Player1.PlayerScore + m_GameLogic.Player2.PlayerScore != totalPossibleScore)
             {
@@ -35,7 +44,7 @@ namespace Ex02.UserInterface
                 {
                     if(m_GameLogic.CurrentPlayer.PlayerType == ePlayerType.Computer)
                     {
-                        computerTurn();
+                        computerPlayerTurn();
                     }
                     else
                     {
@@ -51,62 +60,7 @@ namespace Ex02.UserInterface
             gameOver();
         }
 
-        public void PrintBoard()
-        {
-            printScoreBoard();
-            Console.Write("   ");
-            for (int i = 0; i < r_BoardWidth; i++)
-            {
-                Console.Write("  " + sr_ColumnIdentifier[i].ToString() + "  ");
-            }
-
-            Console.Write("\n");
-
-            for (int i = 0; i < r_BoardHeight * 2; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    Console.Write("   ");
-                    for (int j = 0; j < r_BoardWidth * 5; j++)
-                    {
-                        Console.Write("=");
-                    }
-
-                    Console.Write("=");
-                }
-                else
-                {
-                    Console.Write(" " + ((i + 1) / 2).ToString() + " ");
-                    for (int j = 0; j < r_BoardWidth; j++)
-                    {
-                        Console.Write("| ");
-                        if (m_Board[j, i / 2].IsHidden)
-                        {
-                            Console.Write("   ");
-                        }
-                        else
-                        {
-                            Console.Write(" " + m_Board[j, i / 2].CardValue.ToString() + " ");
-                        }
-                    }
-
-                    Console.Write("|");
-                }
-
-                Console.Write("\n");
-            }
-
-            Console.Write("   ");
-            for (int j = 0; j < r_BoardWidth * 5; j++)
-            {
-                Console.Write("=");
-            }
-
-            Console.Write("=");
-            Console.Write("\n");
-        }
-
-        public void CheckIfValidCard(ref string i_UserCardChoice)
+        private void checkIfValidCard(ref string i_UserCardChoice)
         {
             bool isCardChosen = false;
             bool isLegalCard = m_GameLogic.IsCardLocationInputValid(i_UserCardChoice);
@@ -135,7 +89,70 @@ namespace Ex02.UserInterface
             }
         }
 
-        private void computerTurn()
+        private void printBoard()
+        {
+            printScoreBoard();
+            Console.Write("     ");
+            int counterOfColumnIndex = r_BoardWidth;
+            foreach (eColumnIndex enumValue in Enum.GetValues(typeof(eColumnIndex)))
+            {
+                if (counterOfColumnIndex > 0)
+                {
+                    Console.Write($"{enumValue}   ");
+                    counterOfColumnIndex--;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            Console.Write("\n");
+            for (int i = 0; i < r_BoardHeight * 2; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.Write("   ");
+                    for (int j = 0; j < r_BoardWidth * 4; j++)
+                    {
+                        Console.Write("=");
+                    }
+
+                    Console.Write("=");
+                }
+                else
+                {
+                    Console.Write(" " + ((i + 1) / 2).ToString() + " ");
+                    for (int j = 0; j < r_BoardWidth; j++)
+                    {
+                        Console.Write("| ");
+                        if (m_Board[j, i / 2].IsHidden)
+                        {
+                            Console.Write("  ");
+                        }
+                        else
+                        {
+                            Console.Write(m_Board[j, i / 2].CardValue.ToString() + " ");
+                        }
+                    }
+
+                    Console.Write("|");
+                }
+
+                Console.Write("\n");
+            }
+
+            Console.Write("   ");
+            for (int j = 0; j < r_BoardWidth * 4; j++)
+            {
+                Console.Write("=");
+            }
+
+            Console.Write("=");
+            Console.Write("\n");
+        }
+
+        private void computerPlayerTurn()
         {
             for (int i = 0; i < 2; i++)
             {
@@ -185,7 +202,7 @@ namespace Ex02.UserInterface
                 }
                 else
                 {
-                    CheckIfValidCard(ref cardChoice);
+                    checkIfValidCard(ref cardChoice);
                     int capitalLetterIndexOnBoard = m_GameLogic.ConvertLetterToInt(cardChoice[0]);
                     int numberIndexOnBoard = m_GameLogic.ConvertNumberCharacterToInt(cardChoice[1]);
                     m_GameLogic.UpdateNextTurn(m_Board[capitalLetterIndexOnBoard - 1, numberIndexOnBoard - 1]);
@@ -212,7 +229,7 @@ namespace Ex02.UserInterface
         private void printUpdatedBoard()
         {
             Screen.Clear();
-            PrintBoard();
+            printBoard();
         }
 
         private void generateRandomCharValuesOnBoard()

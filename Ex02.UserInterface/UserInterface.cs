@@ -90,12 +90,12 @@ namespace Ex02.UserInterface
                     Console.WriteLine("\nYou are playing against {0}!\n", m_SecondPlayerName);
                 }
 
-                if (m_GameModeChoice.ToUpper() == "C")
+                if (m_GameModeChoice.ToUpper() == "C" && m_SecondPlayerName == string.Empty)
                 {
                     m_PlayerType = ePlayerType.Computer;
                     m_GameMode = eGameMode.PlayerVsComputer;
                     m_SecondPlayerName = "Computer";
-                    Console.WriteLine("\nYou are playing against the Computer!\n");
+                    Console.WriteLine("\nYou are playing against the {0}!\n", m_SecondPlayerName);
                 }
 
                 if (m_BoardWidth == string.Empty || m_BoardHeight == string.Empty)
