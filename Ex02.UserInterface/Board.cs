@@ -318,11 +318,11 @@ namespace Ex02.UserInterface
         private void exitProgram()
         {
             Console.Write("\nExiting program.");
-            System.Threading.Thread.Sleep(1000);
+            wait(1000);
             Console.Write(".");
-            System.Threading.Thread.Sleep(1000);
+            wait(1000);
             Console.Write(".");
-            System.Threading.Thread.Sleep(1000);
+            wait(1000);
             Environment.Exit(0);
         }
 
