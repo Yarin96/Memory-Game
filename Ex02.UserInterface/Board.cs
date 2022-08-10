@@ -42,7 +42,7 @@ namespace Ex02.UserInterface
             {
                 if (m_GameMode == eGameMode.PlayerVsComputer)
                 {
-                    if(m_GameLogic.CurrentPlayer.PlayerType == ePlayerType.Computer)
+                    if (m_GameLogic.CurrentPlayer.PlayerType == ePlayerType.Computer)
                     {
                         computerPlayerTurn();
                     }
@@ -267,11 +267,12 @@ namespace Ex02.UserInterface
         private void assignLettersFromListToBoard(ref List<char> i_List)
         {
             int indexInList = 0;
+            const bool v_DefineCardAsHidden = true;
             for (int i = 0; i < r_BoardWidth; i++)
             {
                 for (int j = 0; j < r_BoardHeight; j++)
                 {
-                    m_Board[i, j] = new Card(i_List[indexInList], true);
+                    m_Board[i, j] = new Card(i_List[indexInList], v_DefineCardAsHidden);
                     indexInList++;
                 }
             }
